@@ -1,8 +1,8 @@
 # SciFi UI Project
 
-Name:
+Name: Wiktoria Uramowska
 
-Student Number: 
+Student Number: C17742751
 
 Fork this repository and use it a starter project for your assignment
 
