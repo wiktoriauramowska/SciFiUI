@@ -8,6 +8,11 @@ Fork this repository and use it a starter project for your assignment
 
 # Description of the assignment
 
+As part of Object Oriented Programming assignment we were required to create a Scifi inspired UI using Java and Processing.
+The aim of the assignment was not only to test our ability of creative coding but also the knowledge of using OOP concepts 
+such as polymorphism, abstraction or inheritance.
+We could take an inspiration from any of the SciFi movies that we have watched or heard about.
+
 # Instructions
 
 # How it works
