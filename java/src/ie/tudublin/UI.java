@@ -29,7 +29,6 @@ public class UI extends PApplet
     public void settings()
     {
         fullScreen();
-        //background(32, 15, 19);
         
     }
 
