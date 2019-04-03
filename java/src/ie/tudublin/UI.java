@@ -7,6 +7,7 @@ public class UI extends PApplet
     Button b;
     MovingCircle mc;
 
+
     boolean[] keys = new boolean[1024];
 
     public void keyPressed()
@@ -27,9 +28,9 @@ public class UI extends PApplet
 
     public void settings()
     {
-        size(800, 800);
-        // Use fullscreen instead of size to make your interface fullscreen
-        //fullScreen(P3D); 
+        fullScreen();
+        //background(32, 15, 19);
+        
     }
 
     public void setup()
@@ -43,7 +44,7 @@ public class UI extends PApplet
 
     public void draw()
     {
-        background(0);
+        background(32, 15, 19);
         b.render();
 
         mc.update();
