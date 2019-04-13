@@ -4,7 +4,7 @@ import processing.core.PApplet;
 import java.util.Scanner;
 import java.lang.String;
 
-public class StartScreen
+public class StartScreen extends UI
 {
 
     public void onClick()
