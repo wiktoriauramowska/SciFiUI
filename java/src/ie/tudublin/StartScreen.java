@@ -17,5 +17,7 @@ public class StartScreen extends UI
         // Writes the strings to a file, each on a separate line
         //saveStrings("name.txt", userName);
     }
+
+    
     
 }

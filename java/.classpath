@@ -14,5 +14,8 @@
 	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.23.1.jar"/>
 	<classpathentry kind="lib" path="lib/tritonus_aos.jar"/>
 	<classpathentry kind="lib" path="lib/tritonus_share.jar"/>
+	<classpathentry kind="lib" path="lib/opengl.jar"/>
+	<classpathentry kind="lib" path="lib/jogl-all-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/Camera3D.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

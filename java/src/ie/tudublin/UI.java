@@ -1,6 +1,10 @@
 package ie.tudublin;
 
+//import processing.core.PApplet;
+//import processing.opengl.PGraphics3D;
+//import processing.opengl.PGraphicsOpenGL;
 import processing.core.PApplet;
+
 
 public class UI extends PApplet
 {
@@ -39,8 +43,9 @@ public class UI extends PApplet
     {
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
-        radar = new Radar(this, 1, width / 2, height / 2, 100);
+        radar = new Radar(this, 1, 1200, 200, 100);
         sp = new Spiral(this, 1000, 500, 30, 5);
+
     }
 
     
@@ -50,6 +55,9 @@ public class UI extends PApplet
     {
         background(32, 15, 19);
         //b.render();
+
+        textSize(0100);
+
 
         sp.render();
 
