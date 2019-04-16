@@ -78,7 +78,7 @@ public void render()
 
 This is an image using a relative URL:
 
-![An image](images/p1.jpg | width="100" height="50")
+![An image](images/p1.jpg){:height="50px" width="100px"}
 ![An image](images/p2.jpg = 100x50)
 
 This is an image using an absolute URL:
