@@ -66,7 +66,6 @@ public class UI extends PApplet
     {
         background(32, 15, 19);
         //b.render();
-        userName.main(args);
 
         textSize(0100);
         if (done) {
@@ -90,6 +89,7 @@ public class UI extends PApplet
             rect(width/2 - 100, height/2,200, 19);
         }//else
 
+        //have to put those in an if statement, only to execute after the user name is inputted
         sp.render();
 
         mc.update();

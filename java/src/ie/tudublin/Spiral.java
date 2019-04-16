@@ -49,13 +49,11 @@ public class Spiral extends UI
                 ui.point(x, y);
             }
 
-        }
+        }   
+        
+    }
 
-        
-        
-            
-        
-    
-    
+    public void update(){
+        //put in the code for the "spiral" to rotate while on the screen 
     }
 }
