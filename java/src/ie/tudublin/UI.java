@@ -4,7 +4,8 @@ package ie.tudublin;
 //import processing.opengl.PGraphics3D;
 //import processing.opengl.PGraphicsOpenGL;
 import processing.core.PApplet;
-
+import java.lang.Math;
+import java.util.Random;
 
 public class UI extends PApplet
 {
@@ -13,6 +14,12 @@ public class UI extends PApplet
     Spiral sp;
     StartScreen start;
     Radar radar;
+    int counter; 
+    int startTime; 
+    int maxTime;
+    boolean done;
+    GetInput userName;
+    
 
 
     boolean[] keys = new boolean[1024];
@@ -45,6 +52,10 @@ public class UI extends PApplet
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, 1200, 200, 100);
         sp = new Spiral(this, 1000, 500, 30, 5);
+        counter = 0; 
+        startTime = millis(); 
+        maxTime = 5000;
+        done = false;
 
     }
 
@@ -55,9 +66,29 @@ public class UI extends PApplet
     {
         background(32, 15, 19);
         //b.render();
+        userName.main(args);
 
         textSize(0100);
-
+        if (done) {
+            fill(255); 
+            text("DONE", width/2, height/2);
+        } else {
+            if (counter-startTime < maxTime) 
+            {
+                counter=millis();
+            } 
+            else 
+            {
+                done=true;
+            }
+            fill(255);
+            noStroke();
+            rect(width/2 - 100, height/2, map(counter-startTime, 0, maxTime, 0, 200), 19 );
+            text(counter- startTime+" " + (maxTime) +  " " + ( map(counter-startTime, 0, maxTime, 0, 200)), 20, 160);
+            noFill();
+            stroke(255, 7, 58);
+            rect(width/2 - 100, height/2,200, 19);
+        }//else
 
         sp.render();
 
@@ -70,6 +101,15 @@ public class UI extends PApplet
         if (checkKey(LEFT))
         {
             System.out.println("Left arrow key pressed");
+        }
+    }
+
+    public void mousePressed() { 
+        if (done) { 
+            counter = 0; 
+            startTime = millis();
+            maxTime = 5000; 
+            done = false;
         }
     }
 }
