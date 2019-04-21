@@ -7,6 +7,7 @@ import processing.core.PApplet;
 import java.lang.Math;
 import java.util.Random;
 
+
 public class UI extends PApplet
 {
     Button b;
@@ -14,11 +15,8 @@ public class UI extends PApplet
     Spiral sp;
     StartScreen start;
     Radar radar;
-    int counter; 
-    int startTime; 
-    int maxTime;
-    boolean done;
     GetInput userName;
+    LoadingBar loading;
     
 
 
@@ -42,8 +40,8 @@ public class UI extends PApplet
 
     public void settings()
     {
+        //fullScreen(P3D,SPAN);
         fullScreen();
-        
     }
 
     public void setup()
@@ -52,10 +50,7 @@ public class UI extends PApplet
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, 1200, 200, 100);
         sp = new Spiral(this, 1000, 500, 30, 5);
-        counter = 0; 
-        startTime = millis(); 
-        maxTime = 5000;
-        done = false;
+        loading = new LoadingBar(this, 0, millis(), 5000, false);
 
     }
 
@@ -67,31 +62,10 @@ public class UI extends PApplet
         background(32, 15, 19);
         //b.render();
 
-        textSize(0100);
-        if (done) {
-            fill(255); 
-            text("DONE", width/2, height/2);
-        } else {
-            if (counter-startTime < maxTime) 
-            {
-                counter=millis();
-            } 
-            else 
-            {
-                done=true;
-            }
-            fill(255);
-            noStroke();
-            rect(width/2 - 100, height/2, map(counter-startTime, 0, maxTime, 0, 200), 19 );
-            text(counter- startTime+" " + (maxTime) +  " " + ( map(counter-startTime, 0, maxTime, 0, 200)), 20, 160);
-            noFill();
-            stroke(255, 7, 58);
-            rect(width/2 - 100, height/2,200, 19);
-        }//else
-
         //have to put those in an if statement, only to execute after the user name is inputted
         sp.render();
-
+        loading.render();
+        loading.mousePressed();
         mc.update();
         mc.render();
 
@@ -104,13 +78,6 @@ public class UI extends PApplet
         }
     }
 
-    public void mousePressed() { 
-        if (done) { 
-            counter = 0; 
-            startTime = millis();
-            maxTime = 5000; 
-            done = false;
-        }
-    }
+    
 }
 
