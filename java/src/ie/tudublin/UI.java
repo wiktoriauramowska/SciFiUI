@@ -22,6 +22,7 @@ public class UI extends PApplet
     GetInput userName;
     LoadingBar loading;
     FileIcons icon;
+    Border border;
 
     
     ArrayList<Title> titles = new ArrayList<Title>();
@@ -52,6 +53,7 @@ public class UI extends PApplet
         fullScreen();
         loadTitles();
         
+        
     }
 
     public void setup()
@@ -63,6 +65,7 @@ public class UI extends PApplet
         loading = new LoadingBar(this, 0, millis(), 5000, false);
         start = new StartScreen();
         icon = new FileIcons(this);
+        border = new Border(this);
 
     }
 
@@ -75,24 +78,19 @@ public class UI extends PApplet
 
     
     public void printTitles(){
-		// for(int i = 0; i < titles.size(); i++){
-		// 	Title t = titles.get(i);
-		// 	print(t);
-        // }
-        float border = height * 0.1f;
-        float start = width * 0.15f;
-        float w = width * 0.3f;
-        float h = height * 0.25f;
+
+        float start = width * 0.078f;
+        float h = height * 0.13f;
         textAlign(CENTER, CENTER);
-        textSize(24);
+        textSize(16);
         
         for(int i = 0 ; i < titles.size() ; i ++)
             {
                 Title t = titles.get(i);
-                float x = map(i, 0, titles.size(), start, width);
+                float x = map(i, 0, titles.size(), start, width*0.55f);
                 stroke(255);
                 noFill();
-                rect(x-50, h-18, 100, 40);
+                rect(x-40, h-10, 80, 30);
                 fill(255);
                 textAlign(CENTER, CENTER);
                 //text(t.title, start, y + (h / 2));
@@ -135,6 +133,7 @@ public class UI extends PApplet
         printTitles();
         drawTerminal();
         drawSideTab();
+        border.render();
 
         //have to put those in an if statement, only to execute after the user name is inputted
         // sp.render();
