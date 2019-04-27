@@ -4,9 +4,6 @@ package ie.tudublin;
 //import processing.opengl.PGraphics3D;
 //import processing.opengl.PGraphicsOpenGL;
 import processing.core.PApplet;
-import java.lang.Math;
-import java.util.Random;
-import java.io.File;
 import java.util.ArrayList;
 import processing.data.Table;
 import processing.data.TableRow;
@@ -23,6 +20,8 @@ public class UI extends PApplet
     LoadingBar loading;
     FileIcons icon;
     Border border;
+    FlashingCircles flash;
+    PlanetView planet;
 
     
     ArrayList<Title> titles = new ArrayList<Title>();
@@ -49,8 +48,8 @@ public class UI extends PApplet
 
     public void settings()
     {
-        //fullScreen(P3D,SPAN);
-        fullScreen();
+        fullScreen(P3D);
+        //fullScreen();
         loadTitles();
         
         
@@ -66,6 +65,8 @@ public class UI extends PApplet
         start = new StartScreen();
         icon = new FileIcons(this);
         border = new Border(this);
+        flash = new FlashingCircles(this);
+        planet = new PlanetView(this);
 
     }
 
@@ -121,6 +122,7 @@ public class UI extends PApplet
         fill(255);
         rect(start, border, w, h);
     }
+    
 
     
 
@@ -134,6 +136,8 @@ public class UI extends PApplet
         drawTerminal();
         drawSideTab();
         border.render();
+        //flash.render();
+        planet.render();
 
         //have to put those in an if statement, only to execute after the user name is inputted
         // sp.render();
