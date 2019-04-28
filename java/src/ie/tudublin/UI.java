@@ -4,6 +4,8 @@ package ie.tudublin;
 //import processing.opengl.PGraphics3D;
 //import processing.opengl.PGraphicsOpenGL;
 import processing.core.PApplet;
+import processing.core.PImage;
+
 import java.util.ArrayList;
 import processing.data.Table;
 import processing.data.TableRow;
@@ -22,6 +24,11 @@ public class UI extends PApplet
     Border border;
     FlashingCircles flash;
     PlanetView planet;
+    Background back;
+    PImage bg;
+    float speed = map(mouseX, 0, width, 0, 50);
+    Stars[] stars = new Stars[3000];
+    
 
     
     ArrayList<Title> titles = new ArrayList<Title>();
@@ -48,9 +55,9 @@ public class UI extends PApplet
 
     public void settings()
     {
-        fullScreen(P3D);
-        //fullScreen();
-        loadTitles();
+        //fullScreen(P3D);
+        fullScreen();
+        //loadTitles();
         
         
     }
@@ -67,6 +74,12 @@ public class UI extends PApplet
         border = new Border(this);
         flash = new FlashingCircles(this);
         planet = new PlanetView(this);
+        back = new Background(this);
+        
+        
+        for (int i = 0; i < stars.length; i++) {
+            stars[i] = new Stars(this);
+          }
 
     }
 
@@ -122,6 +135,14 @@ public class UI extends PApplet
         fill(255);
         rect(start, border, w, h);
     }
+
+    public void drawStars()
+    {
+        translate(width/2, height/2);
+        for (int i = 0; i < stars.length; i++) {
+            stars[i].render();
+        }
+    }
     
 
     
@@ -131,16 +152,19 @@ public class UI extends PApplet
     {
         background(32, 15, 19);
         //b.render();
-        icon.render();
-        printTitles();
-        drawTerminal();
-        drawSideTab();
-        border.render();
+        //icon.render();
+        //printTitles();
+        //drawTerminal();
+        //drawSideTab();
+        //border.render();
         //flash.render();
-        planet.render();
+        //planet.render();
+        //back.render();
+        drawStars();
+
 
         //have to put those in an if statement, only to execute after the user name is inputted
-        // sp.render();
+        //sp.render();
         // loading.render();
         // loading.mousePressed();
         // mc.update();

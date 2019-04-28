@@ -53,20 +53,45 @@ public class Spiral extends UI
         //     }
 
         // }
-        ui.fill(255);
-        float r = 200; //radius of the spiral
-        int detail = 100; // how detailed the spiral should be 
-        for (int i = 0; i < detail; i++){
-            float lon = map(i, 0, detail, -PI, PI);
-            for (int j = 0; j < detail; j++){
-                float lat = map(j, 0, detail, -HALF_PI, HALF_PI);
-                float x = (r * sin(lon) * cos(lat)) + 400;
-                float y = (r * sin(lon) * sin(lat)) + 250;
-                //float z = r * cos(lon);
-                ui.point(x, y);
+        if (frameCount % 10 == 0) 
+        {
+            float r = 200; //radius of the spiral
+            int detail = 100; // how detailed the spiral should be 
+            for (int i = 0; i < detail; i++)
+            {
+                float lon = map(i, 0, detail, -PI, PI);
+                for (int j = 0; j < detail; j++)
+                {
+                    float lat = map(j, 0, detail, -HALF_PI, HALF_PI);
+                    float x = (r * sin(lon) * cos(lat)) + 400;
+                    float y = (r * sin(lon) * sin(lat)) + 250;
+                    //float z = r * cos(lon);
+                    ui.pushMatrix();
+                    ui.fill(255);
+                    ui.translate(100, 100);
+                    ui.rotate(radians(frameCount * 2  % 360));
+                    ui.point(x, y);
+                    ui.popMatrix();
+                }
             }
+            //ui.rect(0, 0, 80, 20);
+            
+        }
 
-        }  
+        // ui.fill(255);
+        // float r = 200; //radius of the spiral
+        // int detail = 100; // how detailed the spiral should be 
+        // for (int i = 0; i < detail; i++){
+        //     float lon = map(i, 0, detail, -PI, PI);
+        //     for (int j = 0; j < detail; j++){
+        //         float lat = map(j, 0, detail, -HALF_PI, HALF_PI);
+        //         float x = (r * sin(lon) * cos(lat)) + 400;
+        //         float y = (r * sin(lon) * sin(lat)) + 250;
+        //         //float z = r * cos(lon);
+        //         ui.point(x, y);
+        //     }
+
+        // }  
         //ui.popMatrix();
 
         // ui.pushMatrix();
