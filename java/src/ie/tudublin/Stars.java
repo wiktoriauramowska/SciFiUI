@@ -9,9 +9,9 @@ public class Stars extends UI
     UI ui;
 
     public Stars(UI ui){
-        x = random(-width/2, width/2);
-        y = random(-height/2, height/2);
-        z = random(width/2);
+        x = random(-width, width);
+        y = random(-height, height);
+        z = random(width);
         this.ui = ui;
     }
 
@@ -20,11 +20,11 @@ public class Stars extends UI
         ui.fill(255);
         ui.noStroke();
     
-        float sx = map(x / z, 0, 1, 0, width/2);
-        float sy = map(y / z, 0, 1, 0, height/2);;
+        float sx = map(x / z, 0, 1, 0, width);
+        float sy = map(y / z, 0, 1, 0, height);;
     
-        float px = map(x / previousZ, 0, 1, 0, width/2);
-        float py = map(y / previousZ, 0, 1, 0, height/2);
+        float px = map(x / previousZ, 0, 1, 0, width);
+        float py = map(y / previousZ, 0, 1, 0, height);
     
         previousZ = z;
     
