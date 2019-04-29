@@ -42,11 +42,11 @@ public class Radar
             ui.ellipse(ui.mouseX, ui.mouseY, radius * 2 - i, radius * 2 - i);
         }
         ui.line(ui.mouseX, ui.mouseY, x2, y2);
-        //ui.rotate(PApplet.radians(90));
         ui.translate(0,100);
         ui.line(ui.mouseX, ui.mouseY, x2, y2);
-        ui.line(ui.mouseX, ui.mouseY, x2, y2);
-        ui.line(ui.mouseX, ui.mouseY, x2, y2);
+        ui.translate(0, -100);
+        ui.line(ui.mouseX, ui.mouseY,ui.mouseX + radius, ui.mouseY);
+        ui.line(ui.mouseX, ui.mouseY, ui.mouseX - radius, ui.mouseY);
         ui.popMatrix();
     }
 
