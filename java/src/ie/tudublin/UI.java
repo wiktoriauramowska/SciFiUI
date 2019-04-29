@@ -15,6 +15,7 @@ public class UI extends PApplet
 {
     Button b;
     MovingCircle mc;
+    UI ui;
     Spiral sp;
     StartScreen start;
     Radar radar;
@@ -26,7 +27,6 @@ public class UI extends PApplet
     PlanetView planet;
     Background back;
     PImage bg;
-    float speed = map(mouseX, 0, width, 0, 50);
     Stars[] stars = new Stars[3000];
     
 
@@ -59,14 +59,13 @@ public class UI extends PApplet
         fullScreen();
         //loadTitles();
         
-        
     }
 
     public void setup()
     {
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
-        radar = new Radar(this, 1, 1200, 200, 100);
+        radar = new Radar(this, 100, 100, 200, 100);
         sp = new Spiral(this, 1000, 500, 30, 5);
         loading = new LoadingBar(this, 0, millis(), 5000, false);
         start = new StartScreen();
@@ -80,6 +79,8 @@ public class UI extends PApplet
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Stars(this);
           }
+
+        drawStars();
 
     }
 
@@ -138,15 +139,13 @@ public class UI extends PApplet
 
     public void drawStars()
     {
+        //translate needed so they "come out" of the centre 
         translate(width/2, height/2);
         for (int i = 0; i < stars.length; i++) {
             stars[i].render();
         }
     }
     
-
-    
-
 
     public void draw()
     {
@@ -156,11 +155,13 @@ public class UI extends PApplet
         //printTitles();
         //drawTerminal();
         //drawSideTab();
-        //border.render();
+        border.render();
         //flash.render();
         //planet.render();
         //back.render();
         drawStars();
+
+        
 
 
         //have to put those in an if statement, only to execute after the user name is inputted
@@ -171,8 +172,9 @@ public class UI extends PApplet
         // mc.render();
         // start.onClick();
 
-        // radar.update();
-        // radar.render();
+        
+        //radar.render();
+        //radar.update();
 
         // if (checkKey(LEFT))
         // {

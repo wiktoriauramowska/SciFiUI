@@ -13,6 +13,7 @@ public class Stars extends UI
         y = random(-height, height);
         z = random(width);
         this.ui = ui;
+        previousZ = z;
     }
 
     public void render() 
