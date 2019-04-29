@@ -4,6 +4,7 @@ package ie.tudublin;
 //import processing.opengl.PGraphics3D;
 //import processing.opengl.PGraphicsOpenGL;
 import processing.core.PApplet;
+import processing.core.PFont;
 import processing.core.PImage;
 
 import java.util.ArrayList;
@@ -30,9 +31,10 @@ public class UI extends PApplet
     Stars[] stars = new Stars[3000];
     SpaceShip ship;
     
+    
 
     
-    ArrayList<Title> titles = new ArrayList<Title>();
+    ArrayList<Title> title = new ArrayList<Title>();
     
 
 
@@ -58,7 +60,7 @@ public class UI extends PApplet
     {
         //fullScreen(P3D);
         fullScreen();
-        //loadTitles();
+        loadTitle();
         
     }
 
@@ -86,33 +88,32 @@ public class UI extends PApplet
 
     }
 
-    public void loadTitles(){
-		Table table = loadTable("titles.csv", "header");
+    public void loadTitle(){
+		Table table = loadTable("welcome.csv", "header");
 		for(TableRow row:table.rows()){
-			titles.add(new Title(row));
+			title.add(new Title(row));
 		}
     }
 
     
-    public void printTitles(){
+    public void printTitle(){
 
-        float start = width * 0.078f;
+        PFont newFont;
+        
+        newFont = createFont("Amatic-Bold.ttf", 80);
+        textFont(newFont);
+        
+        float x = width /2;
         float h = height * 0.13f;
         textAlign(CENTER, CENTER);
-        textSize(16);
+        fill(255);
         
-        for(int i = 0 ; i < titles.size() ; i ++)
-            {
-                Title t = titles.get(i);
-                float x = map(i, 0, titles.size(), start, width*0.55f);
-                stroke(255);
-                noFill();
-                rect(x-40, h-10, 80, 30);
-                fill(255);
+        for(int i = 0 ; i < title.size() ; i ++)
+        {
+                Title t = title.get(i);
                 textAlign(CENTER, CENTER);
-                //text(t.title, start, y + (h / 2));
-                text(t.title, x, h);
-            }
+                text(t.title,x, h);
+        }
     }
     
     public void drawTerminal()
@@ -154,7 +155,7 @@ public class UI extends PApplet
         background(32, 15, 19);
         //b.render();
         //icon.render();
-        //printTitles();
+        printTitle();
         //drawTerminal();
         //drawSideTab();
         border.render();

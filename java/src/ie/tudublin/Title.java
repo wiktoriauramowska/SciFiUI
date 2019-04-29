@@ -8,7 +8,7 @@ public class Title{
 
 
 	public Title(TableRow row) {
-        title = row.getString("Title");
+        title = row.getString("greeting");
 	}
 
 }
