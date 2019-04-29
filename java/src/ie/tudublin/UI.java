@@ -28,6 +28,7 @@ public class UI extends PApplet
     Background back;
     PImage bg;
     Stars[] stars = new Stars[3000];
+    SpaceShip ship;
     
 
     
@@ -65,7 +66,7 @@ public class UI extends PApplet
     {
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
-        radar = new Radar(this, 100, 100, 200, 100);
+        radar = new Radar(this, mouseX, mouseY, 200, 100);
         sp = new Spiral(this, 1000, 500, 30, 5);
         loading = new LoadingBar(this, 0, millis(), 5000, false);
         start = new StartScreen();
@@ -74,6 +75,7 @@ public class UI extends PApplet
         flash = new FlashingCircles(this);
         planet = new PlanetView(this);
         back = new Background(this);
+        ship = new SpaceShip(this);
         
         
         for (int i = 0; i < stars.length; i++) {
@@ -160,6 +162,7 @@ public class UI extends PApplet
         //planet.render();
         //back.render();
         drawStars();
+        ship.render();
 
         
 
@@ -173,8 +176,8 @@ public class UI extends PApplet
         // start.onClick();
 
         
-        //radar.render();
-        //radar.update();
+        radar.render();
+        radar.update();
 
         // if (checkKey(LEFT))
         // {

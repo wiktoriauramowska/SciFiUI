@@ -32,16 +32,29 @@ public class Radar
         */
 
         ui.noFill();
-        ui.ellipse(pos.x, pos.y, radius * 2, radius * 2);
-        float x2 = pos.x + (float) Math.sin(theta) * radius;
-        float y2 = pos.y - (float) Math.cos(theta) * radius;
-        ui.line(pos.x, pos.y, x2, y2);
+        ui.stroke(255);
+        ui.pushMatrix();
+        ui.translate(-765,-430);
+        ui.ellipse(ui.mouseX, ui.mouseY, radius * 2, radius * 2);
+        float x2 = ui.mouseX + (float) Math.sin(theta) * radius;
+        float y2 = ui.mouseY - (float) Math.cos(theta) * radius;
+        for( Integer i = 20; i < radius * 2; i += 20){
+            ui.ellipse(ui.mouseX, ui.mouseY, radius * 2 - i, radius * 2 - i);
+        }
+        ui.line(ui.mouseX, ui.mouseY, x2, y2);
+        //ui.rotate(PApplet.radians(90));
+        ui.translate(0,100);
+        ui.line(ui.mouseX, ui.mouseY, x2, y2);
+        ui.line(ui.mouseX, ui.mouseY, x2, y2);
+        ui.line(ui.mouseX, ui.mouseY, x2, y2);
+        ui.popMatrix();
     }
 
-    float timeDelta = 2.0f / 40.0f;
+    float timeDelta = 1.0f / 60.0f;
 
     public void update()
     {
+        
         theta += PApplet.TWO_PI * timeDelta * frequency;
     }
 
