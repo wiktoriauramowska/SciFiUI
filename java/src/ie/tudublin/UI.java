@@ -30,6 +30,7 @@ public class UI extends PApplet
     PImage bg;
     Stars[] stars = new Stars[3000];
     SpaceShip ship;
+    SideBoxes boxes;
     
     
 
@@ -78,6 +79,7 @@ public class UI extends PApplet
         planet = new PlanetView(this);
         back = new Background(this);
         ship = new SpaceShip(this);
+        boxes = new SideBoxes(this);
         
         
         for (int i = 0; i < stars.length; i++) {
@@ -164,6 +166,7 @@ public class UI extends PApplet
         //back.render();
         drawStars();
         ship.render();
+        boxes.render();
 
         
 
