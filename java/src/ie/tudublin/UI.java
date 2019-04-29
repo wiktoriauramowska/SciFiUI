@@ -102,7 +102,7 @@ public class UI extends PApplet
 
         PFont newFont;
         
-        newFont = createFont("Amatic-Bold.ttf", 80);
+        newFont = createFont("Amatic-Bold.ttf", 100);
         textFont(newFont);
         
         float x = width /2;
