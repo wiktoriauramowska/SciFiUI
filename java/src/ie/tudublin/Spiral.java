@@ -1,8 +1,5 @@
 package ie.tudublin;
 
-import java.awt.Color;
-
-import processing.core.PApplet;
 
 
 public class Spiral extends UI
@@ -55,7 +52,7 @@ public class Spiral extends UI
         // }
         if (frameCount % 10 == 0) 
         {
-            float r = 200; //radius of the spiral
+            float r = 150; //radius of the spiral
             int detail = 100; // how detailed the spiral should be 
             for (int i = 0; i < detail; i++)
             {
@@ -68,10 +65,17 @@ public class Spiral extends UI
                     //float z = r * cos(lon);
                     ui.pushMatrix();
                     ui.fill(255);
-                    ui.translate(100, 100);
+                    ui.translate(-790, -510);
                     ui.rotate(radians(frameCount * 2  % 360));
                     ui.point(x, y);
                     ui.popMatrix();
+                    ui.fill(58,250,21);
+                    // ui.pushMatrix();
+                    // ui.translate(5, 50);
+                    // ui.rotateX(0);
+                    // ui.rotateY(0);
+                    // ui.sphere(90);
+                    // ui.popMatrix();
                 }
             }
             //ui.rect(0, 0, 80, 20);
