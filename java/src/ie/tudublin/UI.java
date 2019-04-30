@@ -6,6 +6,7 @@ package ie.tudublin;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.core.PImage;
+import processing.core.*;
 
 import java.util.ArrayList;
 import processing.data.Table;
@@ -35,14 +36,18 @@ public class UI extends PApplet
     SpaceShip ship1;
     Minim minim;
     AudioPlayer song;
+    AudioPlayer snap;
     Information info;
     Integer counter;
     SpaceShip ship2;
+    Energy energy;
+    SideBars bars;
     
     
 
     
     ArrayList<Title> title = new ArrayList<Title>();
+    ArrayList<Code> code = new ArrayList<Code>();
     
 
 
@@ -66,9 +71,10 @@ public class UI extends PApplet
 
     public void settings()
     {
-        //fullScreen(P3D);
         fullScreen();
+        //fullScreen(P3D,SPAN);
         loadTitle();
+        loadCode();
         
     }
 
@@ -93,6 +99,9 @@ public class UI extends PApplet
         info = new Information(this);
         song = minim.loadFile("spaceShip.mp3");
         song.play();
+        energy = new Energy(this);
+        bars = new SideBars(this);
+        
 
         
         
@@ -113,6 +122,64 @@ public class UI extends PApplet
 		}
     }
 
+    public void loadCode(){
+        Table table = loadTable("code.csv", "header");
+        for(TableRow row:table.rows()){
+            code.add(new Code(row));
+        }
+    }
+
+    public void printCode(){
+
+        PFont myFont;
+
+        myFont = createFont("data-latin.ttf", 20);
+        textFont(myFont);
+
+        // float x = width *0.2f;
+        // float h = height * 0.3f;
+        float w = -520;
+        float h = -80;
+        float startX = 100;
+        float startY = 200;
+        float x = startX - 650;
+        float y = startY - 300;
+        fill(0);
+        stroke(255);
+        rect(x, y, 350, 500 );
+        textAlign(LEFT, CENTER);
+        noStroke();
+        fill(57,255,20);
+
+        for(int i = 0; i < code.size(); i++)
+        {
+            for(int j = 0; j < 500; j +=50){
+                Code c = code.get(i);
+                textAlign(LEFT, CENTER);
+                text(c.code, w, h + j);
+            }
+        }
+    }
+
+    // float border = height * 0.1f;
+    //     float start = width * 0.05f;
+    //     float w = width * 0.3f;
+    //     float h = height * 0.1f;
+    //     textAlign(LEFT, CENTER);
+    //     textSize(16);
+    //     for(int i = 0 ; i < products.size() ; i ++)
+    //         {
+    //             Product p = products.get(i);
+    //             float y = map(i, 0, products.size(), border, height - border);
+    //             fill(255);
+    //             rect(start, y, w, h);
+    //             fill(0);
+    //             textAlign(LEFT, CENTER);
+    //             text(p.name, start + 10, y + (h / 2));
+    //             textAlign(RIGHT, CENTER);
+    //             text(nf(p.price, 0, 2), start + w - 10, y + (h / 2));
+    //         }
+
     
     public void printTitle(){
 
@@ -132,6 +199,11 @@ public class UI extends PApplet
                 textAlign(CENTER, CENTER);
                 text(t.title,x, h);
         }
+    }
+
+    public void mousePressed(){
+        snap = minim.loadFile("snap.mp3");
+        snap.play();
     }
     
     public void drawTerminal()
@@ -174,15 +246,24 @@ public class UI extends PApplet
         background(32, 15, 19);
         //b.render();
         //icon.render();
+        
+        
         printTitle();
+        
         //drawTerminal();
         //drawSideTab();
         border.render();
         //flash.render();
         //planet.render();
         //back.render();
-        drawStars();
         
+        drawStars();
+        sp.render();
+        energy.render();
+        
+        
+        //info.render();
+        printCode();
         //for(counter = 0; counter < 5; counter++){
         ship.render();
         ship1.render();
@@ -190,6 +271,9 @@ public class UI extends PApplet
         
         
         boxes.render();
+        bars.render();
+        bars.update();
+        
         
 
         
