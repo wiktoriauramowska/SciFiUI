@@ -10,6 +10,7 @@ import processing.core.PImage;
 import java.util.ArrayList;
 import processing.data.Table;
 import processing.data.TableRow;
+import ddf.minim.*;
 
 
 public class UI extends PApplet
@@ -32,6 +33,8 @@ public class UI extends PApplet
     SpaceShip ship;
     SideBoxes boxes;
     SpaceShip ship1;
+    Minim minim;
+    AudioPlayer song;
     
     
 
@@ -82,7 +85,10 @@ public class UI extends PApplet
         ship = new SpaceShip(this);
         boxes = new SideBoxes(this);
         ship1 = new SpaceShip(this);
+        minim = new Minim(this);
         
+        
+       
         
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Stars(this);
@@ -152,6 +158,7 @@ public class UI extends PApplet
             stars[i].render();
         }
     }
+
     
 
     public void draw()
@@ -169,6 +176,8 @@ public class UI extends PApplet
         drawStars();
         ship.render();
         boxes.render();
+        song = minim.loadFile("sound.mp3");
+        song.play();
 
         
 
