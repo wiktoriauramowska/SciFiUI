@@ -5,7 +5,7 @@ public class Stars extends UI
     float x;
     float y;
     float z;
-    float previousZ;
+    float prevZ;
     UI ui;
 
     public Stars(UI ui){
@@ -13,7 +13,7 @@ public class Stars extends UI
         y = random(-height, height);
         z = random(width);
         this.ui = ui;
-        previousZ = z;
+        prevZ = z;
     }
 
     public void render() 
@@ -24,10 +24,10 @@ public class Stars extends UI
         float sx = map(x / z, 0, 1, 0, width);
         float sy = map(y / z, 0, 1, 0, height);;
     
-        float px = map(x / previousZ, 0, 1, 0, width);
-        float py = map(y / previousZ, 0, 1, 0, height);
+        float px = map(x / prevZ, 0, 1, 0, width);
+        float py = map(y / prevZ, 0, 1, 0, height);
     
-        previousZ = z;
+        prevZ = z;
     
         ui.stroke(255);
         ui.line(px, py, sx, sy);

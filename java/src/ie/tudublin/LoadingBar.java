@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-public class LoadingBar
+public class LoadingBar extends UI
 {
     
     int counter; 
@@ -41,7 +41,7 @@ public class LoadingBar
             ui.noFill();
             ui.stroke(255, 7, 58);
             ui.rect(ui.width/2 - 100, ui.height/2,200, 19);
-        }//else
+        }
     }
 
     public void mousePressed() { 

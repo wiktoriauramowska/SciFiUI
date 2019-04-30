@@ -19,9 +19,6 @@ public class SpaceShip extends UI
     }
 
     public void render(){
-        //ui.frameRate(3);
-        //float moveX =  random(-300, 120);
-        //float moveY = random(-300, 120);
         ui.noStroke();
         ui.pushMatrix();
         ui.translate(0,100);

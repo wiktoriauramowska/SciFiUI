@@ -1,6 +1,7 @@
 package ie.tudublin;
 
-public class Information{
+public class Information extends UI
+{
 
     UI ui;
 
