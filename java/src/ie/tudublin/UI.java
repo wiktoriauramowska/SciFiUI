@@ -35,6 +35,9 @@ public class UI extends PApplet
     SpaceShip ship1;
     Minim minim;
     AudioPlayer song;
+    Information info;
+    Integer counter;
+    SpaceShip ship2;
     
     
 
@@ -82,10 +85,15 @@ public class UI extends PApplet
         flash = new FlashingCircles(this);
         planet = new PlanetView(this);
         back = new Background(this);
-        ship = new SpaceShip(this);
+        ship = new SpaceShip(this, 50);
         boxes = new SideBoxes(this);
-        ship1 = new SpaceShip(this);
+        ship1 = new SpaceShip(this, -50);
+        ship2 = new SpaceShip(this, -150);
         minim = new Minim(this);
+        info = new Information(this);
+        song = minim.loadFile("spaceShip.mp3");
+        song.play();
+
         
         
        
@@ -174,10 +182,15 @@ public class UI extends PApplet
         //planet.render();
         //back.render();
         drawStars();
+        
+        //for(counter = 0; counter < 5; counter++){
         ship.render();
+        ship1.render();
+        ship2.render();
+        
+        
         boxes.render();
-        song = minim.loadFile("sound.mp3");
-        song.play();
+        
 
         
 
@@ -193,8 +206,8 @@ public class UI extends PApplet
         // start.onClick();
 
         
-        radar.render();
-        radar.update();
+        //radar.render();
+        //radar.update();
 
         // if (checkKey(LEFT))
         // {
