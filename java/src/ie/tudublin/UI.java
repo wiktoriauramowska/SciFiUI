@@ -1,13 +1,9 @@
 package ie.tudublin;
 
-//import processing.core.PApplet;
-//import processing.opengl.PGraphics3D;
-//import processing.opengl.PGraphicsOpenGL;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.core.PImage;
 import processing.core.*;
-
 import java.util.ArrayList;
 import processing.data.Table;
 import processing.data.TableRow;
@@ -80,17 +76,17 @@ public class UI extends PApplet
 
     public void setup()
     {
-        b = new Button(this, 50, 50, 100, 50, "I am a button");
-        mc = new MovingCircle(this, width / 2, height * .75f, 50);
+        //b = new Button(this, 50, 50, 100, 50, "I am a button");
+        //mc = new MovingCircle(this, width / 2, height * .75f, 50);
+        //loading = new LoadingBar(this, 0, millis(), 5000, false);
+        //start = new StartScreen();
+        //icon = new FileIcons(this);
+        //flash = new FlashingCircles(this);
+        //planet = new PlanetView(this);
+        //back = new Background(this);
         radar = new Radar(this, mouseX, mouseY, 200, 100);
         sp = new Spiral(this, 1000, 500, 30, 5);
-        loading = new LoadingBar(this, 0, millis(), 5000, false);
-        start = new StartScreen();
-        icon = new FileIcons(this);
         border = new Border(this);
-        flash = new FlashingCircles(this);
-        planet = new PlanetView(this);
-        back = new Background(this);
         ship = new SpaceShip(this, 50);
         boxes = new SideBoxes(this);
         ship1 = new SpaceShip(this, -50);
@@ -101,11 +97,6 @@ public class UI extends PApplet
         song.play();
         energy = new Energy(this);
         bars = new SideBars(this);
-        
-
-        
-        
-       
         
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Stars(this);
@@ -136,8 +127,6 @@ public class UI extends PApplet
         myFont = createFont("data-latin.ttf", 20);
         textFont(myFont);
 
-        // float x = width *0.2f;
-        // float h = height * 0.3f;
         float w = -520;
         float h = -80;
         float startX = 100;
@@ -160,25 +149,6 @@ public class UI extends PApplet
             }
         }
     }
-
-    // float border = height * 0.1f;
-    //     float start = width * 0.05f;
-    //     float w = width * 0.3f;
-    //     float h = height * 0.1f;
-    //     textAlign(LEFT, CENTER);
-    //     textSize(16);
-    //     for(int i = 0 ; i < products.size() ; i ++)
-    //         {
-    //             Product p = products.get(i);
-    //             float y = map(i, 0, products.size(), border, height - border);
-    //             fill(255);
-    //             rect(start, y, w, h);
-    //             fill(0);
-    //             textAlign(LEFT, CENTER);
-    //             text(p.name, start + 10, y + (h / 2));
-    //             textAlign(RIGHT, CENTER);
-    //             text(nf(p.price, 0, 2), start + w - 10, y + (h / 2));
-    //         }
 
     
     public void printTitle(){
@@ -264,7 +234,6 @@ public class UI extends PApplet
         
         //info.render();
         printCode();
-        //for(counter = 0; counter < 5; counter++){
         ship.render();
         ship1.render();
         ship2.render();
@@ -273,16 +242,7 @@ public class UI extends PApplet
         boxes.render();
         bars.render();
         bars.update();
-        
-        
-
-        
-
-        
-
-
-        //have to put those in an if statement, only to execute after the user name is inputted
-        //sp.render();
+    
         // loading.render();
         // loading.mousePressed();
         // mc.update();
@@ -290,13 +250,9 @@ public class UI extends PApplet
         // start.onClick();
 
         
-        //radar.render();
-        //radar.update();
+        radar.render();
+        radar.update();
 
-        // if (checkKey(LEFT))
-        // {
-        //     System.out.println("Left arrow key pressed");
-        // }
     }
 
     

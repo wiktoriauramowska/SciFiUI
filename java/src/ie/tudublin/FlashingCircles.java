@@ -3,7 +3,7 @@ package ie.tudublin;
 public class FlashingCircles extends UI
 {
     UI ui;
-    //Integer i;
+    Integer i;
     
     
     

@@ -1,6 +1,7 @@
 package ie.tudublin;
 
-public class Border{
+public class Border extends UI
+{
     UI ui;
 
 

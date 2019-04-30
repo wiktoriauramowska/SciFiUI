@@ -21,15 +21,6 @@ public class Radar
 
     public void render()
     {
-        /*ui.pushMatrix();        
-        ui.noFill();
-        ui.stroke(0, 200, 0);
-        ui.translate(pos.x, pos.y);
-        ui.rotate(theta);
-        ui.ellipse(0, 0, radius * 2, radius * 2);
-        ui.line(0,0,0,-radius);
-        ui.popMatrix();
-        */
 
         ui.noFill();
         if (ui.mousePressed) {
