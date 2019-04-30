@@ -46,6 +46,6 @@ we like/are interested about.
 
 This is a youtube video:
 
-[![YouTube](https://youtu.be/_YAjSdsnJPk)
+[![YouTube]](https://www.youtube.com/watch?v=_YAjSdsnJPk&feature=youtu.be)
 
 
